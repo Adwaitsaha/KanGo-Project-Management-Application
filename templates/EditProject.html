@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Tab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="static\css\EditProject.css" rel="stylesheet">
+</head>
+    <body>
+        <nav class="navbar navbar-custom" id="navbar">
+            <div class="container-fluid">
+                <div id="nav-logo"><a href="/Dashboard">KanGo</a></div>
+                <button class="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header offcanvas-header-custom">
+                <h2 class="offcanvas-title" id="offcanvasRightLabel">Username</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body offcanvas-body-custom">
+                <div>
+                    <div class="offcanvas-body-elements"><a href="/UserProfile">User Profile</a></div>
+                    <div class="offcanvas-body-elements"><a href="/UserSearch">Search and follow user</a></div>
+                    <div class="offcanvas-body-elements"><a href="/ProjectAdder">Create a New Project</a></div>
+                    <div class="offcanvas-body-elements"><a href="/ListAdder">Create a New List</a></div>
+                    <div class="offcanvas-body-elements"><a href="/CardAdder">Create a New Card</a></div>
+                    <div class="offcanvas-body-elements"><a href="/ListSummary">List Summary</a></div>
+                    <div class="offcanvas-body-elements"><a href="/ListReport">List Report</a></div>
+                    <div class="offcanvas-body-elements"><a href="/RemoveRoles">Remove Roles</a></div>
+                    <div class="offcanvas-body-elements"><a href="/Logout">Logout</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="contaier container-custom">
+            <form id="listadding-form" method="post" action="/EditProject/{{pid}}">
+                <div id="addlistform">
+                    <div class="mb-3"><h2><em>Project Tab</em></h2></div>
+                        {% if datapassed is defined %}
+                            {% if generalerror is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                {{generalerror}}
+                            </div>
+                            {% endif %}
+                            <div class="mb-3">
+                                <label for="project-name" class="form-label"><strong>Project Name</strong></label>
+                                <input type="text" class="form-control" id="project-name" name="project-name" placeholder="MyProject" value="{{projectname}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="projectDescription" class="form-label"><strong>Description</strong></label>
+                                <textarea class="form-control" id="projectDescription" name="projectDescription" placeholder="Enter the description of your project here" rows="6" value="">{{projectdescription}}</textarea>
+                            </div>
+                        {% else %}
+                            <div class="mb-3">
+                                <label for="project-name" class="form-label"><strong>Project Name</strong></label>
+                                <input type="text" class="form-control" id="project-name" name="project-name" placeholder="MyProject">
+                            </div>
+                            <div class="mb-3">
+                                <label for="projectDescription" class="form-label"><strong>Description</strong></label>
+                                <textarea class="form-control" id="projectDescription" name="projectDescription" placeholder="Enter the description of your project here" rows="6"></textarea>
+                            </div>                        
+                        {% endif %}
+                    <div class="mb3">
+                        <input class="btn btn-primary btn-custom" type="submit" name="Addbutton" value="Save" id="login-submit-button" >
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </body>
+</html>

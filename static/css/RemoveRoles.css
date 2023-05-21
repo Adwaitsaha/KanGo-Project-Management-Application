@@ -1,0 +1,57 @@
+#nav-logo{
+    margin-left: 47%;
+    font-weight: bold;
+    font-size: 30px;
+}
+#nav-logo a{
+    text-decoration: none;
+    color: black;
+}
+.navbar-custom {
+    padding: 20px 0px;
+    background-color: turquoise;
+}
+.navbar-toggler-button{
+    background-color: #FFFFED;
+    border:black solid 2px;
+}
+.offcanvas-header-custom{
+    background-color: #FFFFED;
+    padding: 18px 20px;
+}
+.offcanvas-body-custom{
+    background-color: turquoise;
+}
+.offcanvas-body-elements{
+    background-color: #FFFFED;
+    padding: 5%;
+    margin: 5%;
+    text-align: center;
+    font-size: large;
+    border:black solid 2px;
+    font-weight: bold;
+}
+.offcanvas-body-elements a{
+    text-decoration: none;
+    color: black;
+}
+.offcanvas-body-elements:hover{
+    background-color: grey;
+}
+body{
+    background-color: #FFFFED;
+}
+#accordianContainder{
+    padding-top: 2%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+#accordianContainer_Completedlists{
+    margin-top: 20px;
+}
+.accordion-header th,td{
+    padding-left: 30px;
+}
+.accordion-body{
+    padding: 20px;
+}

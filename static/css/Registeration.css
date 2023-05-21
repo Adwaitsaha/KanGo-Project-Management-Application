@@ -1,0 +1,47 @@
+body{
+    background-color: #FFFFED;
+}
+#nav-logo{
+    margin-left: 47%;
+    font-weight: bold;
+    font-size: 30px;
+}
+.navbar-custom {
+    padding: 20px 0px;
+    background-color: turquoise;
+}
+#registeration-form-container{
+    padding-top: 4%;
+    padding-right: 32%;
+    padding-left: 34%;
+    background-color: #FFFFED;
+}
+.btn-custom{
+    background-color: #FFFFED;
+    color: rgb(79, 76, 76);
+    border: grey 1px solid;
+}
+.btn-custom:hover{
+    background-color: turquoise;
+    color: rgb(79, 76, 76);
+    border: rgb(79, 76, 76) 1px solid;
+}
+#register-submit-button{
+    margin: 0px 10px 0px 70%;
+}
+#login{
+    margin: 5px 0px 0px 10px;
+}
+#login a{
+  color: turquoise;
+}
+#login a:hover{
+  color: grey;
+  text-decoration: underline;
+}
+#registeration-form{
+    padding: 15px;
+    border: grey 2px solid;
+    border-radius: 20px;
+    background-color: white;
+}

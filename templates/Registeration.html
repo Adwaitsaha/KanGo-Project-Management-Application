@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registeration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="static\css\Registeration.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-custom" id="navbar">
+      <div class="container-fluid">
+        <div id="nav-logo">KanGo</div>
+      </div>
+    </nav>
+      <div id="registeration-form-container">
+        <form id="registeration-form" action="/Registeration" method="post" >
+            {% if datapassed is defined %}
+                {% for i in data %}
+                    {% if otpsend is defined %}
+                        <input type="hidden" class="form-control" id="firstname" name="firstname" placeholder="First Name" value="{{i['firstname']}}">
+                        <input type="hidden" class="form-control" id="lastname" name="lastname" placeholder="Last Name" value="{{i['lastname']}}">
+                        <input type="hidden" class="form-control" id="dob" name="dob" value="{{i['dob']}}">
+                        <input type="hidden" class="form-control" id="emailid" name="emailid" placeholder="Email Address" value="{{i['emailid']}}">
+                        <input type="hidden" class="form-control" id="registeration-username" name="registeration-username" placeholder="Username" value="{{i['registeration-username']}}">
+                        <input type="hidden" class="form-control" id="registeration-password" name="registeration-password" placeholder="Registeration Password" value="{{i['registeration-password']}}">
+                        <input type="hidden" class="form-control" id="registeration-repassword" name="registeration-repassword" placeholder="Registeration Password" value="{{i['registeration-repassword']}}">
+                        {% if otperror is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Incorrect OTP entered
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="OTP" class="form-label">OTP send to your email address:</label>
+                            <input type="text" class="form-control" id="OTP" name="OTP" placeholder="******">
+                        </div>
+                        <div>
+                            <input class="btn btn-primary btn-custom" type="submit" value="Register..." id="register-submit-button">
+                        </div>
+                    {% else %}
+                        {% if generalerror is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                {{generalerror}}
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="firstname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" value="{{i['firstname']}}">
+                        </div>
+                        {% if fnamenotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Please enter your First Name 
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="lastname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" value="{{i['lastname']}}">
+                        </div>
+                        {% if lnamenotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Please enter your Last Name 
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" name="dob" value="{{i['dob']}}">
+                        </div>
+                        {% if dobnotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Please select your date of birth 
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="emailid" class="form-label">Email Address</label>
+                            <input type="text" class="form-control" id="emailid" name="emailid" placeholder="Email Address" value="{{i['emailid']}}">
+                        </div>
+                        {% if emailnotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Please enter your email address
+                            </div>
+                        {% endif %}
+                        {% if invalidEmailid is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Invalid Email address
+                            </div>
+                        {% endif %}
+                        {% if mailAlreadyExists is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Email-id is already registered
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="registeration-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="registeration-username" name="registeration-username" placeholder="Username" value="{{i['registeration-username']}}">
+                        </div>
+                        {% if usernamenotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Please enter your username
+                            </div>
+                        {% endif %}
+                        {% if invalidUsername is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                This username is already taken
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="registeration-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registeration-password" name="registeration-password" placeholder="Registeration Password" value="{{i['registeration-password']}}">
+                        </div>
+                        {% if passwordnotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Please enter your password
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="registeration-repassword" class="form-label">Re-Enter Password</label>
+                            <input type="password" class="form-control" id="registeration-repassword" name="registeration-repassword" placeholder="Registeration Password" value="{{i['registeration-repassword']}}">
+                        </div>
+                        {% if repasswordnotfound is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Re-entering the password is must
+                            </div>
+                        {% endif %}
+                        {% if incorrectPassword is defined %}
+                            <div class="alert alert-danger" role="alert">
+                                Password and Re-Entered password doesn't match
+                            </div>
+                        {% endif %}
+                        <input type="hidden" class="form-control" id="OTP" name="OTP" placeholder="******" value="******">
+                        <div>
+                            <span id="login"><a href="/">Login!</a></span>
+                            <input class="btn btn-primary btn-custom" type="submit" value="Next->" id="register-submit-button">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
+                </div>
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" name="dob">
+                </div>
+                <div class="mb-3">
+                    <label for="emailid" class="form-label">Email Address</label>
+                    <input type="text" class="form-control" id="emailid" name="emailid" placeholder="Email Address">
+                </div>
+                <div class="mb-3">
+                    <label for="registeration-username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="registeration-username" name="registeration-username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <label for="registeration-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="registeration-password" name="registeration-password" placeholder="Registeration Password">
+                </div>
+                <div class="mb-3">
+                    <label for="registeration-repassword" class="form-label">Re-Enter Password</label>
+                    <input type="password" class="form-control" id="registeration-repassword" name="registeration-repassword" placeholder="Registeration Password">
+                </div>
+                <input type="hidden" class="form-control" id="OTP" name="OTP" placeholder="******" value="******">
+                <div>
+                    <span id="login"><a href="/">Login!</a></span>
+                    <input class="btn btn-primary btn-custom" type="submit" value="Next->" id="register-submit-button">
+                </div>
+            {% endif %}
+        </form>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>

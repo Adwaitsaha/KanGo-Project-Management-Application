@@ -1,0 +1,69 @@
+#nav-logo{
+    margin-left: 47%;
+    font-weight: bold;
+    font-size: 30px;
+}
+#nav-logo a{
+    text-decoration: none;
+    color: black;
+}
+.navbar-custom {
+    padding: 20px 0px;
+    background-color: turquoise;
+}
+.navbar-toggler-button{
+    background-color: #FFFFED;
+    border:black solid 2px;
+}
+.offcanvas-header-custom{
+    background-color: #FFFFED;
+    padding: 18px 20px;
+}
+.offcanvas-body-custom{
+    background-color: turquoise;
+}
+.offcanvas-body-elements{
+    background-color: #FFFFED;
+    padding: 5%;
+    margin: 5%;
+    text-align: center;
+    font-size: large;
+    border:black solid 2px;
+    font-weight: bold;
+}
+.offcanvas-body-elements a{
+    text-decoration: none;
+    color: black;
+}
+.offcanvas-body-elements:hover{
+    background-color: grey;
+}
+.container-custom{
+    padding: 1% 25% 1% 27%;
+    background-color: #FFFFED;
+}
+body{
+    background-color: #FFFFED;
+}
+#addcardform{
+    background-color: white;
+    padding: 35px;
+    border: 2px solid black;
+    border-radius: 5%;
+}
+.btn-custom{
+    margin-left: 47%;
+    margin-top: 15px;
+    padding: 10px 15px 10px 15px;
+    background-color: #FFFFED;
+    color: rgb(79, 76, 76);
+    border: grey 1px solid;
+}
+.btn-custom:hover{
+    background-color: turquoise;
+    color: rgb(79, 76, 76);
+    border: rgb(79, 76, 76) 1px solid;
+}
+.checkbox-custom{
+    margin-top: 20px;
+}
